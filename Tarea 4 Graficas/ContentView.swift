@@ -33,7 +33,7 @@ struct ContentView: View {
         CountryBuyers(countrys:"Costa Rica" , amount:22998 ),
         CountryBuyers(countrys:"Guatemala" , amount:18612 ),
         CountryBuyers(countrys:"Panama" , amount:14899 ),
-
+        
     ]
     
     let buyers: [TopBuyers] = [
@@ -65,7 +65,11 @@ struct ContentView: View {
     ]
     
     var body: some View {
+        NavigationStack {
         ScrollView(.vertical, showsIndicators: true) {
+            NavigationLink(destination: LineChartView()) {
+                Text("Line Chart")
+            }
             VStack {
                 Text("Top buyers of your inventory")
                     .font(.headline)
@@ -76,9 +80,7 @@ struct ContentView: View {
                         angle: .value("Amount", sale.amount),
                         innerRadius: .ratio(0.618),
                         outerRadius: .inset(10),
-                        angularInset: 1
                     )
-                    .cornerRadius(4)
                     .foregroundStyle(by: .value("Company", sale.company))
                 }
                 .frame(height: 300)
@@ -113,12 +115,14 @@ struct ContentView: View {
                 }
                 .frame(height: 300)
                 .padding()
-
+                
             }
         }
         .padding()
+        }
     }
 }
+
 
 #Preview {
     ContentView()
