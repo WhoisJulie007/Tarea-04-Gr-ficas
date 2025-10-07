@@ -61,14 +61,14 @@ struct ContentView: View {
         SaleData(date: 14, month: "Sep", amount: 171),
         SaleData(date: 15, month: "Sep", amount: 126),
         SaleData(date: 16, month: "Sep", amount: 122),
-        SaleData(date: 17, month: "Sep", amount: 117),
+        SaleData(date: 17, month: "Sep", amount: 317),
     ]
     
     var body: some View {
         NavigationStack {
         ScrollView(.vertical, showsIndicators: true) {
             NavigationLink(destination: LineChartView()) {
-                Text("Line Chart")
+                Text("Click para Ruleta")
             }
             VStack {
                 Text("Top buyers of your inventory")
@@ -110,7 +110,7 @@ struct ContentView: View {
                             y: .value("Sales", valor.amount)
                         )
                         .cornerRadius(4)
-                        .foregroundStyle(by: .value("Sales", valor.amount))
+                      //  .foregroundStyle(by: .value("Date", "\(valor.date) \(valor.month)"))
                     }
                 }
                 .frame(height: 300)
